@@ -10,21 +10,22 @@ export default class StartPage extends JetView{
 			view: 'form',
 			id:'form_auth',
 			elements:[
-				{ view:"text", label:"login", name:'login' },
-				{ view:"text", type:"password", label:"Password", name:'password' },
+				{ view:"text", label:"Логин", name:'login' },
+				{ view:"text", type:"password", label:"Пароль", name:'password' },
 				{cols:[
-						{ view:"button", value:"Login", css:"webix_primary", on: {
+						{ view:"button", value:"Войти", css:"webix_primary", on: {
 								onItemClick: ()=>{
 									this.authorization()
 								}
 							} },
-						{ view:"button", value:"Cancel", on: {
+						{ view:"button", value:"Отмена", on: {
 								onItemClick:()=>{
 									this.cancel();
 								}
 							} }
 					]}
-			]
+			],
+
 		}
 
 		let ui = {
