@@ -1,6 +1,5 @@
 import {JetView} from "webix-jet";
 import {Session} from "../models/session";
-import StartPage from "./authorization";
 
 export default class LoginView extends JetView{
     config(){
