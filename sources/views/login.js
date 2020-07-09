@@ -33,13 +33,12 @@ export default class LoginView extends JetView{
     }
     do_login(){
         const form = $$("login_form");
-        console.log(form)
+
         if (form.validate()){
             const data = form.getValues();
             Session.login(data.login, data.pass).then(
                 res=>{
-                    console.log(res)
-                    this.show('/authorization');
+                    this.show('/data');
                 },
                 rej=>{
                     webix.html.removeCss(form.$view, "invalid_login");

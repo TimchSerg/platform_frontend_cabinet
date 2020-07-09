@@ -70,7 +70,7 @@ module.exports = function(env) {
 			stats:"errors-only",
 			proxy: {
 				"/server":{
-					target: 'http://localhost:3000',
+					target: 'http://localhost:4000',
 					pathRewrite: {"^/server" : ""}
 				}
 			}
