@@ -1,6 +1,8 @@
+import {tokenStorage} from "../storage/token";
+
 export const Session = {
     status(){
-        const token = "00d8a9869983858c47d04b1581223309bf53d8a2";
+        const token = tokenStorage.get().token;
         return new webix.ajax().post(`/server/status`, {token}).then(resolve => {
             const res = resolve.json();
             if(res.access){
@@ -26,16 +28,16 @@ export const Session = {
             const code_data = Object.assign(json, client_data);
                 webix.ajax().post(`/server/getToken`, code_data).then(resolve => {
                     const token = resolve.json();
-                    console.log(token)
+                    tokenStorage.put(token)
                     return true;
                 })
         } );
     },
     logout(){
-        return webix.ajax().post(`${base_url}/threeraza/admin/logout`)
-            .then(a =>{
-                return a.json();
-            } );
+        tokenStorage.remove();
+        return new Promise((resolve, rej)=>{
+           resolve(true)
+        });
     }
 }
 // function status(){
